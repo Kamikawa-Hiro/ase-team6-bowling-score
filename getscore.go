@@ -4,14 +4,6 @@ import{
 	"fmt"
 }
 
-type player struct{
-	name string
-	score [21]int
-	flame int
-	strike int
-	spare int
-}
-
 func getscore() (int, int) {
 	var scoreFirst, scoreSecond int
 	fmt.Println("1投目のスコアを記入してください")

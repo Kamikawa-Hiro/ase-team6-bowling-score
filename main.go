@@ -22,7 +22,7 @@ func main(){
 	for i:=0; i<10; i++{
 		if i == 9{
 			for j:=0; j<playernum; j++{
-				players[j].score[2*i], players[j].score[2*i+1] = getscore_10flame()		//ペアプロで
+				getscore_10flame(players[j].score)		//ペアプロで
 				players[j].flame = i
 				printscore(players[j].score, players[j].name)				
 			}
