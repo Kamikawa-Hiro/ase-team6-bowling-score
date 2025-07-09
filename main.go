@@ -1,8 +1,8 @@
 package main
 
-import{
+import(
 	"fmt"
-}
+)
 
 type player struct{
 	name string
@@ -16,6 +16,7 @@ func main(){
 	playernum := getplayernum()
 	players := make([]player, playernum)
 	for i:=0; i< playernum; i++{
+		fmt.Print("%d 番目のプレイヤー名を入力してください\n")
 		players[i].name := getplayername()
 	}
 
