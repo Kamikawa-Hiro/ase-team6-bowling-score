@@ -24,13 +24,13 @@ func main(){
 			for j:=0; j<playernum; j++{
 				players[j].score[2*i], players[j].score[2*i+1] = getscore_10flame()		//ペアプロで
 				players[j].flame = i
-				printscore(players[j].score, players[j].flame)				
+				printscore(players[j].score, players[j].name)				
 			}
 		}elif i < 9{
 			for j:=0; j<playernum; j++{
 				players[j].score[2*i], players[j].score[2*i+1] = getscore()
 				players[j].flame = i
-				printscore(players[j].score, players[j].flame)
+				printscore(players[j].score, players[j].name)
 			}
 		}
 	}
