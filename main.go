@@ -25,14 +25,14 @@ func main(){
 		if i == 9{
 			for j:=0; j<playernum; j++{
 				players[j].score[2*i], players[j].score[2*i+1], players[j].score[2*i+2] = getscore_10flame()		//ペアプロで
-				players[j].flame = i
-				printscore(players[j].score, players[j].name)				
+				players[j].flame = i+1
+				printscore(players[j].score, players[j].name, players[j].flame)				
 			}
 		}else if i < 9{
 			for j:=0; j<playernum; j++{
 				players[j].score[2*i], players[j].score[2*i+1] = getscore()
-				players[j].flame = i
-				printscore(players[j].score, players[j].name)
+				players[j].flame = i+1
+				printscore(players[j].score, players[j].name, players[j].flame)
 			}
 		}
 	}
