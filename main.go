@@ -10,6 +10,7 @@ type player struct{
 	flame int
 	strike int
 	spare int
+	sum [10]int
 }
 
 func main(){
@@ -26,8 +27,7 @@ func main(){
 			for j:=0; j<playernum; j++{
 				players[j].score[2*i], players[j].score[2*i+1], players[j].score[2*i+2] = getscore_10flame()		//ペアプロで
 				players[j].flame = i+1
-				
-				
+		
 				if players[j].score[18] == 10{
 					players[j].strike += 1
 					if players[j].score[19] == 10{
@@ -45,8 +45,9 @@ func main(){
 					}
 				}
 
+				players[j].sum[i] = calculate(players[j].score)
+				printscore(players[j].score, players[j].name, players[j].flame, players[j].sum)				
 
-				printscore(players[j].score, players[j].name, players[j].flame)				
 			}
 		}else if i < 9{
 			for j:=0; j<playernum; j++{
@@ -59,7 +60,8 @@ func main(){
 					players[j].spare += 1
 				}
 				
-				printscore(players[j].score, players[j].name, players[j].flame)
+				players[j].sum[i] = calculate(players[j].score)
+				printscore(players[j].score, players[j].name, players[j].flame, players[j].sum)	
 			}
 		}
 	}
