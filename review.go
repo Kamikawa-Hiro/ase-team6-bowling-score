@@ -6,11 +6,11 @@ import(
 
 func review(players []player, playernum int){
 	if playernum >= 2{
-		max = 0
+		max := 0
 		max_players := 0
 		for i:=0;i<playernum;i++{
-			if max < players[i].sum{
-				max = players[i].sum
+			if max < players[i].sum[9]{
+				max = players[i].sum[9]
 				max_players = i
 			}
 		}
@@ -43,7 +43,7 @@ func strike_and_spare_rate(players []player, playernum int){
 		}
 
 		spare_rate = (players[i].spare / spare_chance) * 100
-
-		fmt.Printf("%s のストライク率：%d % スペア率：%d %", players[i].name, strike_rate, spare_rate)
+		//ストライク、スペア率が0％になってる
+		fmt.Printf("%s のストライク率：%d %% スペア率：%d %%\n", players[i].name, strike_rate, spare_rate)
 	}
 }

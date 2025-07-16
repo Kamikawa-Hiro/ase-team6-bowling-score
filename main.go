@@ -65,4 +65,7 @@ func main(){
 			}
 		}
 	}
+
+	review(players, playernum)
+	strike_and_spare_rate(players, playernum)
 }
