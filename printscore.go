@@ -12,9 +12,8 @@ func calculate(score [21]int) int{
 
 	return sum 
 }
-func printscore(score [21]int, name string, flame int) {
-	sum := calculate(score)
-	fmt.Printf("%s の現在のスコア：%d\n", name, sum)
+func printscore(score [21]int, name string, flame int, sum [10]int) {
+	fmt.Printf("%s の現在のスコア：%d\n", name)
 	fmt.Println("スコア：", score)
 
 	maxscore := score
@@ -32,9 +31,34 @@ func printscore(score [21]int, name string, flame int) {
 	fmt.Println("最大スコア：", maxscore)
 	
 
-// dif={
-// 	{+,|,-,-,-,-,-,-,-,-,-,-,-,-,-,+},
-// 	{|,1,"",2,"",3,"",,},
-// 	{+,-,-,-,-,-,-,-,-,-,-,-,-,-,+},
+	fmt.Println("---------------------------------------------------------------------------------")
+	fmt.Println("|   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |")
+	fmt.Println("---------------------------------------------------------------------------------")
+	fmt.Print("|")
+	for i := 0; i < flame; i++ {
+		if i < 9 {
+			if score[2*i] == 10 {
+				fmt.Print(" X |   |")
+			}else {
+				fmt.Printf(" %d |", score[2*i])
+				fmt.Printf(" %d |", score[2*i+1])
+			}
+		}else {
+			if score[2*i] + score[2*i+1] < 10 {
+				fmt.Printf(" %d |", score[2*i])
+				fmt.Printf(" %d |", score[2*i+1])
+			}else {
+				fmt.Printf(" %d|", score[2*i])
+				fmt.Printf("%d|", score[2*i+1])
+				fmt.Printf("%d |", score[2*i+2])
+			}
+		}
+	}
+	fmt.Println("")
+	fmt.Print("|")
+	for i := 0; i < flame; i++ {
+		fmt.Printf("  %3d  |", sum[i])
+	}
+	fmt.Println("")
 // 	{|,name,|},
 }
