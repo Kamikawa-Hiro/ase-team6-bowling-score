@@ -24,7 +24,7 @@ func main(){
 		fmt.Printf("%d フレーム目\n",i+1)
 		if i == 9{
 			for j:=0; j<playernum; j++{
-				getscore_10flame(players[j].score)		//ペアプロで
+				players[j].score[2*i], players[j].score[2*i+1], players[j].score[2*i+2] = getscore_10flame()		//ペアプロで
 				players[j].flame = i
 				printscore(players[j].score, players[j].name)				
 			}
