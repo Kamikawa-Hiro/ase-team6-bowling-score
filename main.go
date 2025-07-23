@@ -76,4 +76,16 @@ func main(){
 
 	review(players, playernum)
 	strike_and_spare_rate(players, playernum)
+
+
+	var high  [21]int
+	var highsum  [10]int
+	high = highflame(players, playernum)
+	for k:=0; k < 10; k++{
+		highsum[k] = calculateflame(high, k+1)
+	}
+	fmt.Println("--------------------------------------------------------------------------------------------")
+	fmt.Println("|       |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |")
+	printscore(high, "highflame", 10, highsum)
+
 }
