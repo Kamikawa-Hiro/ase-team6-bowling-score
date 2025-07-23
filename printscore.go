@@ -106,9 +106,9 @@ func printscore(score [21]int, name string, flame int, sum [10]int) {
 
 	// fmt.Println("---------------------------------------------------------------------------------")
 	// fmt.Println("|   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |")
-	fmt.Println("-----------------------------------------------------------------------------------------")
+	fmt.Println("--------------------------------------------------------------------------------------------")
 	fmt.Print("|")
-	fmt.Printf("%-7s|", name)
+	fmt.Printf("%-10s|", name)
 	for i := 0; i < flame; i++ {
 		if i < 9 {
 			if score[2*i] == 10 {
@@ -154,7 +154,7 @@ func printscore(score [21]int, name string, flame int, sum [10]int) {
 	}
 	fmt.Println("")
 	fmt.Print("|")
-	fmt.Print("       |")
+	fmt.Print("          |")
 	for i := 0; i < flame; i++ {
 		fmt.Printf("  %3d  |", sum[i])
 	}
@@ -163,10 +163,10 @@ func printscore(score [21]int, name string, flame int, sum [10]int) {
 }
 
 func multiPrintscore(players []player, playernum int) {
-	fmt.Println("-----------------------------------------------------------------------------------------")
-	fmt.Println("|name   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |")
+	fmt.Println("--------------------------------------------------------------------------------------------")
+	fmt.Println("|name      |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |")
 	for i:=0; i<playernum; i++ {
 		printscore(players[i].score, players[i].name, players[i].flame, players[i].sum)
 	}
-	fmt.Println("-----------------------------------------------------------------------------------------")
+	fmt.Println("--------------------------------------------------------------------------------------------")
 }
