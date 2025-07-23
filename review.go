@@ -19,31 +19,33 @@ func review(players []player, playernum int){
 }
 
 func strike_and_spare_rate(players []player, playernum int){
-	strike_rate := 0
-	spare_rate := 0
+	strike_rate := 0.0
+	spare_rate := 0.0
 	for i:=0; i<playernum; i++{
-		strike_chance := 10
+		strike_chance := 10.0
 		for j:=18;j<20;j++{
 			if players[i].score[j] == 10{
 				strike_chance += 1
 			}
 		}
+		strike_rate = (float64(players[i].strike) / float64(strike_chance)) * 100
 
-		strike_rate = (players[i].strike / strike_chance) * 100
 
-
-		spare_chance := 0
+		spare_chance := 0.0
 		for j:=0;j<10;j++{
 			if players[i].score[j*2] != 10{
 				spare_chance += 1
 			}
 		}
-		if players[i].score[18] == 10 || players[i].score[19] != 10{
+		if players[i].score[18] == 10 && players[i].score[19] != 10{
 			spare_chance += 1
 		}
 
-		spare_rate = (players[i].spare / spare_chance) * 100
-		//ストライク、スペア率が0％になってる
-		fmt.Printf("%s のストライク率：%d %% スペア率：%d %%\n", players[i].name, strike_rate, spare_rate)
+		if spare_chance > 0{
+			spare_rate = (float64(players[i].spare) / float64(spare_chance)) * 100
+		}else{
+			spare_rate = 0.0
+		}
+		fmt.Printf("%s のストライク率：%.1f %% スペア率：%.1f %%\n", players[i].name, strike_rate, spare_rate)
 	}
 }
