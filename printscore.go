@@ -117,15 +117,35 @@ func printscore(score [21]int, name string, flame int, sum [10]int) {
 				fmt.Printf(" %d |", score[2*i])
 				fmt.Printf(" / |")
 			}else {
-				fmt.Printf(" %d |", score[2*i])
-				fmt.Printf(" %d |", score[2*i+1])
+				if score[2*i] == 0{
+					fmt.Printf(" G |")
+				}else{
+					fmt.Printf(" %d |", score[2*i])
+				}
+				if score[2*i+1] == 0{
+					fmt.Printf(" - |")
+				}else{
+					fmt.Printf(" %d |", score[2*i+1])
+				}				
 			}
 		}else {
 			if score[2*i] + score[2*i+1] < 10 {
-				fmt.Printf(" %d |", score[2*i])
-				fmt.Printf(" %d |", score[2*i+1])
+				if score[2*i] == 0{
+					fmt.Printf(" G |")
+				}else{
+					fmt.Printf(" %d |", score[2*i])
+				}
+				if score[2*i+1] == 0{
+					fmt.Printf(" - |")
+				}else{
+					fmt.Printf(" %d |", score[2*i+1])
+				}
 			}else if score[2*i] != 10{
-				fmt.Printf(" %d|", score[2*i])
+				if score[2*i] == 0{
+					fmt.Printf(" G |")
+				}else{
+					fmt.Printf(" %d |", score[2*i])
+				}
 				fmt.Printf("/|")
 				if score[2*i+2] == 10 {
 					fmt.Print("X |")
@@ -139,14 +159,26 @@ func printscore(score [21]int, name string, flame int, sum [10]int) {
 					if score[2*i+2] == 10 {
 						fmt.Print("X |")
 					}else {
-						fmt.Printf("%d |", score[2*i+2])
+						if score[2*i] == 0{
+							fmt.Printf("G |")
+						}else{
+							fmt.Printf("%d |", score[2*i+2])
+						}						
 					}
 				}else {
-					fmt.Printf("%d|", score[2*i+1])
+					if score[2*i] == 0{
+						fmt.Printf("G |")
+					}else{
+						fmt.Printf("%d |", score[2*i+1])
+					}
 					if score[2*i+1] + score[2*i+2] == 10 {
 						fmt.Print("/ |")
 					}else {
-						fmt.Printf("%d |", score[2*i+2])
+						if score[2*i+1] == 0{
+							fmt.Printf("- |")
+						}else{
+							fmt.Printf("%d |", score[2*i+2])
+						}
 					}
 				}
 			}
