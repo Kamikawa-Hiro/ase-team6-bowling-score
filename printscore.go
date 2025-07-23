@@ -82,7 +82,7 @@ func calculate(score [21]int) int{
 
 func printscore(score [21]int, name string, flame int, sum [10]int) {
 
-	fmt.Printf("%s の現在のスコア：%d\n", name,sum[flame-1])
+	//fmt.Printf("%s の現在のスコア：%d\n", name,sum[flame-1])
 
 
 	// fmt.Println("スコア：", score)

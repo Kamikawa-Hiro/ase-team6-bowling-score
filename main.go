@@ -48,7 +48,7 @@ func main(){
 				for k:=0; k < 10; k++{
 					players[j].sum[k] = calculateflame(players[j].score, k+1)
 				}
-					printscore(players[j].score, players[j].name, players[j].flame, players[j].sum)				
+					//printscore(players[j].score, players[j].name, players[j].flame, players[j].sum)				
 
 
 			}
@@ -67,7 +67,7 @@ func main(){
 				for k:=0; k < 10; k++{
 					players[j].sum[k] = calculateflame(players[j].score, k+1)
 				}
-				printscore(players[j].score, players[j].name, players[j].flame, players[j].sum)	
+				//printscore(players[j].score, players[j].name, players[j].flame, players[j].sum)	
 
 			}
 			multiPrintscore(players, playernum)
