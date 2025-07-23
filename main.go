@@ -44,12 +44,15 @@ func main(){
 						players[j].strike += 1
 					}
 				}
+
 				for k:=0; k < 10; k++{
 					players[j].sum[k] = calculateflame(players[j].score, k+1)
 				}
 					printscore(players[j].score, players[j].name, players[j].flame, players[j].sum)				
 
+
 			}
+			multiPrintscore(players, playernum)
 		}else if i < 9{
 			for j:=0; j<playernum; j++{
 				players[j].score[2*i], players[j].score[2*i+1] = getscore()
@@ -60,11 +63,14 @@ func main(){
 				}else if players[j].score[2*i] + players[j].score[2*i+1] == 10{
 					players[j].spare += 1
 				}
+
 				for k:=0; k < 10; k++{
 					players[j].sum[k] = calculateflame(players[j].score, k+1)
 				}
 				printscore(players[j].score, players[j].name, players[j].flame, players[j].sum)	
+
 			}
+			multiPrintscore(players, playernum)
 		}
 	}
 
