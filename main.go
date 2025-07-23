@@ -48,6 +48,7 @@ func main(){
 				for k:=0; k < 10; k++{
 					players[j].sum[k] = calculateflame(players[j].score, k+1)
 				}			
+
 			}
 			multiPrintscore(players, playernum)
 		}else if i < 9{
@@ -64,6 +65,8 @@ func main(){
 				for k:=0; k < 10; k++{
 					players[j].sum[k] = calculateflame(players[j].score, k+1)
 				}
+
+
 
 			}
 			multiPrintscore(players, playernum)
