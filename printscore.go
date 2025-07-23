@@ -114,7 +114,11 @@ func printscore(score [21]int, name string, flame int, sum [10]int) {
 			if score[2*i] == 10 {
 				fmt.Print(" X |   |")
 			}else if score[2*i] + score[2*i+1] == 10 {
-				fmt.Printf(" %d |", score[2*i])
+				if score[2*i] == 0{
+					fmt.Printf(" G |")
+				}else{
+					fmt.Printf(" %d |", score[2*i])
+				}
 				fmt.Printf(" / |")
 			}else {
 				if score[2*i] == 0{
@@ -167,9 +171,9 @@ func printscore(score [21]int, name string, flame int, sum [10]int) {
 					}
 				}else {
 					if score[2*i] == 0{
-						fmt.Printf("G |")
+						fmt.Printf(" G|")
 					}else{
-						fmt.Printf("%d |", score[2*i+1])
+						fmt.Printf("%d|", score[2*i+1])
 					}
 					if score[2*i+1] + score[2*i+2] == 10 {
 						fmt.Print("/ |")
