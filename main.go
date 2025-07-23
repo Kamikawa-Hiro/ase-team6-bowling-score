@@ -46,9 +46,9 @@ func main(){
 				}
 
 				players[j].sum[i] = calculate(players[j].score)
-				printscore(players[j].score, players[j].name, players[j].flame, players[j].sum)				
-
+				// printscore(players[j].score, players[j].name, players[j].flame, players[j].sum)
 			}
+			multiPrintscore(players, playernum)
 		}else if i < 9{
 			for j:=0; j<playernum; j++{
 				players[j].score[2*i], players[j].score[2*i+1] = getscore()
@@ -61,8 +61,9 @@ func main(){
 				}
 				
 				players[j].sum[i] = calculate(players[j].score)
-				printscore(players[j].score, players[j].name, players[j].flame, players[j].sum)	
+				// printscore(players[j].score, players[j].name, players[j].flame, players[j].sum)	
 			}
+			multiPrintscore(players, playernum)
 		}
 	}
 

@@ -36,33 +36,37 @@ func calculate(score [21]int) int{
 }
 
 func printscore(score [21]int, name string, flame int, sum [10]int) {
-	fmt.Printf("%s の現在のスコア：%d\n", name)
+	// fmt.Printf("%s の現在のスコア：%d\n", name)
 
-	fmt.Println("スコア：", score)
+	// fmt.Println("スコア：", score)
 
-	maxscore := score
-	for i:=flame; i< 10; i++{
-		maxscore[(i)*2] = 10
-	}
-	if flame != 10{
-		maxscore[18] = 10
-		maxscore[19] = 10
-		maxscore[20] = 10
-	}
+	// maxscore := score
+	// for i:=flame; i< 10; i++{
+	// 	maxscore[(i)*2] = 10
+	// }
+	// if flame != 10{
+	// 	maxscore[18] = 10
+	// 	maxscore[19] = 10
+	// 	maxscore[20] = 10
+	// }
 
-	maxsum := calculate(maxscore)
-	fmt.Printf("%s の最大スコア：%d\n", name, maxsum)
-	fmt.Println("最大スコア：", maxscore)
+	// maxsum := calculate(maxscore)
+	// fmt.Printf("%s の最大スコア：%d\n", name, maxsum)
+	// fmt.Println("最大スコア：", maxscore)
 	
 
-	fmt.Println("---------------------------------------------------------------------------------")
-	fmt.Println("|   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |")
-	fmt.Println("---------------------------------------------------------------------------------")
+	// fmt.Println("---------------------------------------------------------------------------------")
+	// fmt.Println("|   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |")
+	fmt.Println("-----------------------------------------------------------------------------------------")
 	fmt.Print("|")
+	fmt.Printf("%-7s|", name)
 	for i := 0; i < flame; i++ {
 		if i < 9 {
 			if score[2*i] == 10 {
-				fmt.Print(" X |   |")
+				fmt.Print(" X |")
+			}else if score[2*i] + score[2*i+1] == 10 {
+				fmt.Printf(" %d |", score[2*i])
+				fmt.Printf(" / |")
 			}else {
 				fmt.Printf(" %d |", score[2*i])
 				fmt.Printf(" %d |", score[2*i+1])
@@ -71,18 +75,49 @@ func printscore(score [21]int, name string, flame int, sum [10]int) {
 			if score[2*i] + score[2*i+1] < 10 {
 				fmt.Printf(" %d |", score[2*i])
 				fmt.Printf(" %d |", score[2*i+1])
-			}else {
+			}else if score[2*i] != 10{
 				fmt.Printf(" %d|", score[2*i])
-				fmt.Printf("%d|", score[2*i+1])
-				fmt.Printf("%d |", score[2*i+2])
+				fmt.Printf("/|")
+				if score[2*i+2] == 10 {
+					fmt.Print("X |")
+				}else {
+					fmt.Printf("%d |", score[2*i+2])
+				}
+			}else {
+				fmt.Print(" X|")
+				if score[2*i+1] == 10 {
+					fmt.Print("X|")
+					if score[2*i+2] == 10 {
+						fmt.Print("X |")
+					}else {
+						fmt.Printf("%d |", score[2*i+2])
+					}
+				}else {
+					fmt.Printf("%d|", score[2*i+1])
+					if score[2*i+1] + score[2*i+2] == 10 {
+						fmt.Print("/ |")
+					}else {
+						fmt.Printf("%d |", score[2*i+2])
+					}
+				}
 			}
 		}
 	}
 	fmt.Println("")
 	fmt.Print("|")
+	fmt.Print("       |")
 	for i := 0; i < flame; i++ {
 		fmt.Printf("  %3d  |", sum[i])
 	}
 	fmt.Println("")
 // 	{|,name,|},
+}
+
+func multiPrintscore(players []player, playernum int) {
+	fmt.Println("-----------------------------------------------------------------------------------------")
+	fmt.Println("|name   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |")
+	for i:=0; i<playernum; i++ {
+		printscore(players[i].score, players[i].name, players[i].flame, players[i].sum)
+	}
+	fmt.Println("-----------------------------------------------------------------------------------------")
 }
