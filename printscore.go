@@ -4,6 +4,51 @@ import(
 	"fmt"
 )
 
+func calculateflame(score [21]int, k int) int{
+	totalScore := 0
+	rollIndex := 0 // 現在処理しているscore配列のインデックス
+
+	// 10フレーム分のスコアを計算
+	for frame := 0; frame < k; frame++ {
+		
+		// ストライクの判定
+		if frame < 8{
+			if score[rollIndex] == 10 { // 1投目が10ピンならストライク
+				if score[rollIndex+2] == 10{
+					totalScore += 20 + score[rollIndex+4]
+				}else{
+					totalScore += 10 + score[rollIndex+2] + score[rollIndex+3]
+				} 
+				rollIndex += 2 
+
+			} else if score[rollIndex]+score[rollIndex+1] == 10 { // 1投目と2投目の合計が10ならスペア
+				totalScore += 10 + score[rollIndex+2]
+				rollIndex += 2 
+
+			} else { // オープンフレーム
+				totalScore += score[rollIndex] + score[rollIndex+1]
+				rollIndex += 2 
+			}
+		}else if frame == 8{
+			if score[16] == 10 { // 1投目が10ピンならストライク
+				totalScore += 10 + score[18] + score[19]
+
+			} else if score[16]+score[17] == 10 { // 1投目と2投目の合計が10ならスペア
+				totalScore += 10 + score[18]
+
+			} else { // オープンフレーム
+				totalScore += score[16] + score[17]
+			}
+		}
+	}
+	if k == 10{
+		totalScore += score[18] + score[19] + score[20]
+	}
+
+
+	return totalScore
+}
+
 func calculate(score [21]int) int{
 	totalScore := 0
 	rollIndex := 0 // 現在処理しているscore配列のインデックス
@@ -36,7 +81,9 @@ func calculate(score [21]int) int{
 }
 
 func printscore(score [21]int, name string, flame int, sum [10]int) {
-	// fmt.Printf("%s の現在のスコア：%d\n", name)
+
+	fmt.Printf("%s の現在のスコア：%d\n", name,sum[flame-1])
+
 
 	// fmt.Println("スコア：", score)
 
